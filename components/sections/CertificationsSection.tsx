@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Award, ExternalLink } from "lucide-react"
+import { motion } from "framer-motion";
+import { Award, ExternalLink } from "lucide-react";
 
 const certifications = [
   { name: "HTML Tutorial Module", icon: "🌐" },
@@ -9,11 +9,14 @@ const certifications = [
   { name: "Modern JavaScript: ES6 Basics", icon: "⚡" },
   { name: "Introduction to Bash Shell Scripting", icon: "💻" },
   { name: "Command Line Linux", icon: "🐧" },
-]
+];
 
 export default function CertificationsSection() {
   return (
-    <section id="certifications" className="py-20 px-4 bg-slate-900/50">
+    <section
+      id="certifications"
+      className="py-20 px-4 bg-white dark:bg-slate-900/50"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -37,25 +40,20 @@ export default function CertificationsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-cyan-400/50 transition-all duration-300 group"
+              className="bg-white/80 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <div className="flex items-center space-x-4 mb-4">
                 <div className="text-3xl">{cert.icon}</div>
                 <Award className="h-6 w-6 text-cyan-400 group-hover:text-purple-400 transition-colors duration-300" />
               </div>
 
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                 {cert.name}
               </h3>
-
-              <div className="flex items-center text-slate-400 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
-                <span className="text-sm">View Certificate</span>
-                <ExternalLink className="h-4 w-4 ml-2" />
-              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

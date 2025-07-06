@@ -61,7 +61,7 @@ export default function ProjectsSection() {
               viewport={{ once: true }}
               onHoverStart={() => setHoveredProject(index)}
               onHoverEnd={() => setHoveredProject(null)}
-              className="group relative bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-cyan-400/50 transition-all duration-500"
+              className="group relative bg-white dark:bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-cyan-400/50 transition-all duration-500"
             >
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
@@ -72,13 +72,13 @@ export default function ProjectsSection() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/40 to-transparent"></div>
 
                 {/* Overlay on Hover */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredProject === index ? 1 : 0 }}
-                  className="absolute inset-0 bg-slate-900/80 flex items-center justify-center space-x-4"
+                  className="absolute inset-0 bg-slate-500/10 flex items-center justify-center space-x-4"
                 >
                   <Button
                     size="sm"
@@ -108,17 +108,19 @@ export default function ProjectsSection() {
               {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-cyan-400 text-sm font-medium">
+                  <span className="text-slate-900 dark:text-white text-sm font-medium">
                     {project.category}
                   </span>
-                  <span className="text-slate-400 text-sm">{project.year}</span>
+                  <span className="text-slate-900 dark:text-white text-sm">
+                    {project.year}
+                  </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-300 mb-4 leading-relaxed">
+                <p className="text-slate-900 dark:text-white mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -137,7 +139,7 @@ export default function ProjectsSection() {
                 {/* Action Button */}
                 <Button
                   variant="ghost"
-                  className="text-cyan-400 hover:text-white hover:bg-cyan-400/20 p-0"
+                  className="text-slate-900 dark:text-white hover:text-cyan-400 transition-colors duration-300 flex items-center"
                 >
                   Learn More
                   <ExternalLink className="h-4 w-4 ml-2" />
