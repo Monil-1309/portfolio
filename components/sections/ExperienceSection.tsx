@@ -27,7 +27,25 @@ export default function ExperienceSection() {
       className="py-24 px-4 bg-white dark:bg-slate-900/50 relative overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-slate-900/50 dark:to-indigo-950/50" />
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-slate-900/50 dark:to-indigo-950/50" /> */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 50,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+        className="absolute top-20 right-20 w-32 h-32 border border-cyan-200/30 dark:border-cyan-800/30 rounded-full"
+      />
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{
+          duration: 40,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+        className="absolute bottom-20 left-20 w-24 h-24 border border-purple-200/30 dark:border-purple-800/30 rounded-full"
+      />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,7 +54,7 @@ export default function ExperienceSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
             Work Experience
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
