@@ -106,7 +106,7 @@ export default function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="py-24 px-4 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-indigo-950 relative overflow-hidden"
+      className="py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-indigo-950 relative overflow-hidden"
     >
       {/* Background Elements */}
       <motion.div
@@ -116,7 +116,7 @@ export default function ContactSection() {
           repeat: Number.POSITIVE_INFINITY,
           ease: "linear",
         }}
-        className="absolute top-10 right-10 w-40 h-40 border-2 border-cyan-200/20 dark:border-cyan-800/20 rounded-full"
+        className="absolute top-4 right-4 sm:top-10 sm:right-10 w-24 h-24 sm:w-40 sm:h-40 border-2 border-cyan-200/20 dark:border-cyan-800/20 rounded-full"
       />
       <motion.div
         animate={{ rotate: -360, scale: [1.1, 1, 1.1] }}
@@ -125,7 +125,7 @@ export default function ContactSection() {
           repeat: Number.POSITIVE_INFINITY,
           ease: "linear",
         }}
-        className="absolute bottom-10 left-10 w-32 h-32 border-2 border-purple-200/20 dark:border-purple-800/20 rounded-full"
+        className="absolute bottom-4 left-4 sm:bottom-10 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 border-2 border-purple-200/20 dark:border-purple-800/20 rounded-full"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -133,10 +133,10 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
@@ -144,13 +144,13 @@ export default function ContactSection() {
             Let's Work Together
           </motion.h2>
           <motion.div
-            className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto rounded-full mb-8"
+            className="w-20 sm:w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto rounded-full mb-6 sm:mb-8"
             initial={{ width: 0 }}
             animate={isInView ? { width: 128 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <motion.p
-            className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-xl text-slate-600 dark:text-slate-400 max-w-xs sm:max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -160,17 +160,17 @@ export default function ContactSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-10"
+            className="space-y-8 sm:space-y-10"
           >
             <div>
               <motion.h3
-                className="text-3xl font-bold text-slate-900 dark:text-white mb-6"
+                className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.3 }}
@@ -178,7 +178,7 @@ export default function ContactSection() {
                 Get in Touch
               </motion.h3>
               <motion.p
-                className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed"
+                className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-6 sm:mb-8 leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.4 }}
@@ -189,7 +189,7 @@ export default function ContactSection() {
               </motion.p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 {
                   icon: Mail,
@@ -216,19 +216,19 @@ export default function ContactSection() {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
                   whileHover={{ x: 10, scale: 1.02 }}
-                  className="flex items-center space-x-6 p-6 bg-white/80 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm group cursor-pointer"
+                  className="flex items-center space-x-4 sm:space-x-6 p-4 sm:p-6 bg-white/80 dark:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm group cursor-pointer"
                 >
                   <motion.div
-                    className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center shadow-lg`}
+                    className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center shadow-lg`}
                     whileHover={{ rotate: 5, scale: 1.1 }}
                   >
-                    <item.icon className="h-8 w-8 text-white" />
+                    <item.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </motion.div>
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-white text-lg">
+                    <p className="font-bold text-slate-900 dark:text-white text-base sm:text-lg">
                       {item.label}
                     </p>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
                       {item.value}
                     </p>
                   </div>
@@ -238,15 +238,15 @@ export default function ContactSection() {
 
             {/* Social Links */}
             <motion.div
-              className="pt-8"
+              className="pt-6 sm:pt-8"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.8 }}
             >
-              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">
                 Connect with me
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -262,10 +262,12 @@ export default function ContactSection() {
                     }}
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`flex items-center space-x-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-xl text-slate-700 dark:text-slate-300 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-700 ${social.color}`}
+                    className={`flex items-center space-x-2 sm:space-x-3 px-4 sm:px-6 py-2 sm:py-3 bg-white dark:bg-slate-800 rounded-xl text-slate-700 dark:text-slate-300 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl border border-slate-200 dark:border-slate-700 ${social.color}`}
                   >
                     <social.icon className="h-5 w-5" />
-                    <span className="font-medium">{social.label}</span>
+                    <span className="font-medium text-sm sm:text-base">
+                      {social.label}
+                    </span>
                     <ExternalLink className="h-4 w-4" />
                   </motion.a>
                 ))}
@@ -278,9 +280,9 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white/80 dark:bg-slate-800/50 p-10 rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
+            className="bg-white/80 dark:bg-slate-800/50 p-4 sm:p-10 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -292,7 +294,7 @@ export default function ContactSection() {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-lg transition-all duration-300"
+                  className="h-12 sm:h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-base sm:text-lg transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -308,7 +310,7 @@ export default function ContactSection() {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-lg transition-all duration-300"
+                  className="h-12 sm:h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-base sm:text-lg transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -324,7 +326,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 resize-none rounded-xl text-lg transition-all duration-300"
+                  className="bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 resize-none rounded-xl text-base sm:text-lg transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -342,7 +344,7 @@ export default function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full h-14 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl text-lg font-semibold"
+                    className="w-full h-12 sm:h-14 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl text-base sm:text-lg font-semibold"
                   >
                     <AnimatePresence mode="wait">
                       {isSubmitting ? (
