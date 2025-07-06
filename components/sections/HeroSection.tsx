@@ -18,7 +18,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const scrollToNext = () => {
-    const aboutSection = document.querySelector("#about");
+    const aboutSection = document.querySelector("#contact");
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -94,7 +94,10 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={itemVariants} className="mb-8 flex flex-col justify-center items-center">
+          <motion.div
+            variants={itemVariants}
+            className="mb-8 flex flex-col justify-center items-center"
+          >
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -176,13 +179,15 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="group"
             >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-10 py-4 rounded-full transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 text-lg font-semibold"
-              >
-                <Download className="mr-3 h-6 w-6 group-hover:animate-bounce" />
-                Download Resume
-              </Button>
+              <a href="/Monil-Resume.pdf" download>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-10 py-4 rounded-full transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 text-lg font-semibold"
+                >
+                  <Download className="mr-3 h-6 w-6 group-hover:animate-bounce" />
+                  Download Resume
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div
