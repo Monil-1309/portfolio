@@ -9,22 +9,28 @@ const projects = [
   {
     title: "OpenObserve",
     description:
-      "A cloud-native observability platform built with Vue.js, Astro, Tailwind CSS, and Strapi. Features multiple pages with varied views and conditional content display.",
-    tech: ["Vue.js", "Astro", "Tailwind CSS", "JavaScript", "Strapi"],
+      "OpenObserve is an open-source observability platform that provides real-time insights into your applications and infrastructure. It offers powerful features for monitoring, logging, and tracing, making it easier to troubleshoot issues and optimize performance.",
     image: "/o2.png",
     category: "Web Application",
     year: "2024",
+    tech: ["React", "Node.js", "TypeScript", "OpenObserve"],
     status: "Company Project",
+    learnMoreLink: "https://openobserve.dev",
+    githubLink: "https://github.com/openobserve/openobserve",
+    viewLink: "https://openobserve.ai/",
   },
   {
     title: "eKisanMart",
     description:
-      "A comprehensive web application aimed to help farmers sell crops, buy seeds, and rent farm equipment. Includes 24/7 expert support and government policy updates.",
-    tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+      "eKisanMart is a modern e-commerce platform designed to connect farmers directly with consumers. It allows users to buy fresh produce and agricultural products online, promoting local farming and sustainable practices.",
     image: "/ekisanMart.jpeg",
     category: "E-commerce",
     year: "2023",
+    tech: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
     status: "Personal Project",
+    // learnMoreLink: "https://ekisanmart.example.com",
+    // githubLink: "https://github.com/yourprofile/ekisanmart",
+    // viewLink: "https://ekisanmart.example.com/demo",
   },
 ];
 
@@ -52,7 +58,7 @@ export default function ProjectsSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects?.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -66,8 +72,8 @@ export default function ProjectsSection() {
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
                 <motion.img
-                  src={project.image}
-                  alt={project.title}
+                  src={project?.image}
+                  alt={project?.title || "Project image"}
                   className="w-full h-full object-contain"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
@@ -80,70 +86,99 @@ export default function ProjectsSection() {
                   animate={{ opacity: hoveredProject === index ? 1 : 0 }}
                   className="absolute inset-0 bg-slate-500/10 flex items-center justify-center space-x-4"
                 >
-                  <Button
-                    size="sm"
-                    className="bg-cyan-500 hover:bg-cyan-600 text-white"
-                  >
-                    <Eye className="h-4 w-4 mr-2" />
-                    View
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
-                  </Button>
+                  {project?.viewLink && (
+                    <a
+                      href={project.viewLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        size="sm"
+                        className="bg-cyan-500 hover:bg-cyan-600 text-white"
+                      >
+                        <Eye className="h-4 w-4 mr-2" />
+                        View
+                      </Button>
+                    </a>
+                  )}
+
+                  {project?.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white"
+                      >
+                        <Github className="h-4 w-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
+                  )}
                 </motion.div>
 
                 {/* Status Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {project.status}
-                  </span>
-                </div>
+                {project?.status && (
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {project.status}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-slate-900 dark:text-white text-sm font-medium">
-                    {project.category}
+                    {project?.category || "Project"}
                   </span>
                   <span className="text-slate-900 dark:text-white text-sm">
-                    {project.year}
+                    {project?.year || ""}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
-                  {project.title}
+                  {project?.title || "Untitled Project"}
                 </h3>
 
                 <p className="text-slate-900 dark:text-white mb-4 leading-relaxed">
-                  {project.description}
+                  {project?.description || "No description available."}
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="bg-slate-700 text-slate-300 px-3 py-1 rounded-full text-sm hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-600 hover:text-white transition-all duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                {project?.tech?.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="bg-slate-700 text-slate-300 px-3 py-1 rounded-full text-sm hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-600 hover:text-white transition-all duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
-                {/* Action Button */}
-                <Button
-                  variant="ghost"
-                  className="text-slate-900 dark:text-white hover:text-cyan-400 transition-colors duration-300 flex items-center"
-                >
-                  Learn More
-                  <ExternalLink className="h-4 w-4 ml-2" />
-                </Button>
+                {project?.learnMoreLink && (
+                  <a
+                    href={project.learnMoreLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button
+                      variant="ghost"
+                      className="text-slate-900 dark:text-white hover:text-cyan-400 transition-colors duration-300 flex items-center"
+                    >
+                      Learn More
+                      <ExternalLink className="h-4 w-4 ml-2" />
+                    </Button>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
