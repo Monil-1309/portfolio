@@ -50,7 +50,7 @@ export default function AboutSection() {
           className="text-center mb-20"
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent"
+            className="text-5xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
