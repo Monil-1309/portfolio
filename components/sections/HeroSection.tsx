@@ -52,7 +52,7 @@ export default function HeroSection() {
     <section
       ref={ref}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden px-2 sm:px-0" // px-2 for mobile
     >
       <ParticleBackground />
       <FloatingElements />
@@ -69,7 +69,7 @@ export default function HeroSection() {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 dark:from-cyan-400/10 dark:to-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-60 h-60 sm:w-96 sm:h-96 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 dark:from-cyan-400/10 dark:to-blue-500/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -81,13 +81,13 @@ export default function HeroSection() {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-500/20 dark:from-purple-400/10 dark:to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-80 sm:h-80 bg-gradient-to-r from-purple-400/20 to-pink-500/20 dark:from-purple-400/10 dark:to-pink-500/10 rounded-full blur-3xl"
         />
       </div>
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 text-center px-4 max-w-5xl mx-auto"
+        className="relative z-10 text-center px-2 sm:px-4 max-w-full sm:max-w-5xl mx-auto" // px-2 for mobile
       >
         <motion.div
           variants={containerVariants}
@@ -96,13 +96,13 @@ export default function HeroSection() {
         >
           <motion.div
             variants={itemVariants}
-            className="mb-8 flex flex-col justify-center items-center"
+            className="mb-6 sm:mb-8 flex flex-col justify-center items-center"
           >
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-cyan-200 dark:border-cyan-800/50 rounded-full px-6 py-3 mb-6 shadow-lg shadow-cyan-500/10"
+              className="inline-flex items-center space-x-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-cyan-200 dark:border-cyan-800/50 rounded-full px-4 py-2 sm:px-6 sm:py-3 mb-4 sm:mb-6 shadow-lg shadow-cyan-500/10" // px-4 py-2 mb-4 for mobile
             >
               <motion.div
                 animate={{ rotate: 360 }}
@@ -119,7 +119,7 @@ export default function HeroSection() {
               </span>
             </motion.div>
             <motion.span
-              className="text-slate-600 dark:text-cyan-400 text-lg font-medium"
+              className="text-base sm:text-lg text-slate-600 dark:text-cyan-400 font-medium" // text-base for mobile
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -130,7 +130,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8 leading-tight" // text-4xl mb-6 for mobile
           >
             <motion.span
               initial={{ backgroundPosition: "0% 50%" }}
@@ -146,10 +146,10 @@ export default function HeroSection() {
             </motion.span>
           </motion.h1>
 
-          <motion.div variants={itemVariants} className="mb-10">
-            <motion.div className="flex items-center justify-center space-x-4 mb-6">
+          <motion.div variants={itemVariants} className="mb-8 sm:mb-10">
+            <motion.div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4 sm:mb-6">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-200"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-200" // text-2xl for mobile
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
@@ -159,7 +159,7 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.p
-              className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed"
+              className="text-base sm:text-xl text-slate-600 dark:text-slate-400 max-w-xs sm:max-w-3xl mx-auto leading-relaxed" // text-base max-w-xs for mobile
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
@@ -172,19 +172,19 @@ export default function HeroSection() {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-20" // gap-4 mb-12 for mobile
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="group"
+              className="group w-full sm:w-auto"
             >
-              <a href="/Monil-Resume.pdf" download>
+              <a href="/Monil-Resume.pdf" download className="block w-full">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-10 py-4 rounded-full transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 text-lg font-semibold"
+                  className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 text-base sm:text-lg font-semibold" // px-6 py-3 text-base for mobile
                 >
-                  <Download className="mr-3 h-6 w-6 group-hover:animate-bounce" />
+                  <Download className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 group-hover:animate-bounce" />
                   Download Resume
                 </Button>
               </a>
@@ -193,15 +193,15 @@ export default function HeroSection() {
             <motion.div
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="group"
+              className="group w-full sm:w-auto"
             >
               <Button
                 variant="outline"
                 size="lg"
                 onClick={() => scrollToNext()}
-                className="border-2 border-cyan-600 text-cyan-700 dark:text-cyan-400 hover:bg-cyan-600 hover:text-white dark:hover:text-white px-10 py-4 rounded-full transition-all duration-300 text-lg font-semibold bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm"
+                className="w-full sm:w-auto border-2 border-cyan-600 text-cyan-700 dark:text-cyan-400 hover:bg-cyan-600 hover:text-white dark:hover:text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 text-base sm:text-lg font-semibold bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm" // px-6 py-3 text-base for mobile
               >
-                <Mail className="mr-3 h-6 w-6 group-hover:animate-pulse" />
+                <Mail className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 group-hover:animate-pulse" />
                 Let's Connect
               </Button>
             </motion.div>
@@ -211,7 +211,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
           >
             <motion.button
               onClick={scrollToNext}
@@ -225,9 +225,9 @@ export default function HeroSection() {
                 ease: "easeInOut",
               }}
               whileHover={{ scale: 1.2 }}
-              className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 p-3 rounded-full hover:bg-white/50 dark:hover:bg-slate-800/50 backdrop-blur-sm"
+              className="text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 p-2 sm:p-3 rounded-full hover:bg-white/50 dark:hover:bg-slate-800/50 backdrop-blur-sm" // p-2 for mobile
             >
-              <ArrowDown className="h-6 w-6" />
+              <ArrowDown className="h-5 w-5 sm:h-6 sm:w-6" />
             </motion.button>
           </motion.div>
         </motion.div>
