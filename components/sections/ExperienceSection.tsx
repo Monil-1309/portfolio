@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Calendar, MapPin, Building } from "lucide-react"
+import { motion } from "framer-motion";
+import { Calendar, MapPin, Building } from "lucide-react";
 
 const experiences = [
   {
@@ -18,14 +18,16 @@ const experiences = [
       "Built responsive user interfaces and enhanced user experience",
     ],
   },
-]
+];
 
 export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="py-20 px-4 bg-white dark:bg-slate-900/60"
+      className="py-24 px-4 bg-white dark:bg-slate-900/50 relative overflow-hidden"
     >
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-slate-900/50 dark:to-indigo-950/50" />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,7 +36,7 @@ export default function ExperienceSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-cyan-600 dark:from-white dark:to-cyan-400 bg-clip-text text-transparent">
             Work Experience
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
@@ -58,36 +60,34 @@ export default function ExperienceSection() {
 
               <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white dark:bg-slate-900/50 p-8 rounded-xl border border-slate-700 hover:border-cyan-400/50 transition-all duration-300"
+                className="bg-white/80 dark:bg-slate-800/50 p-8 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold  mb-2">
-                      {exp.title}
-                    </h3>
-                    <div className="flex items-center space-x-4 text-slate-300">
+                    <h3 className="text-2xl font-bold  mb-2">{exp.title}</h3>
+                    <div className="flex items-center space-x-4 text-slate-900 dark:text-white">
                       <div className="flex items-center space-x-2">
-                        <Building className="h-4 w-4 text-cyan-400" />
+                        <Building className="h-4 w-4 text-slate-900 dark:text-white" />
                         <span>{exp.company}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <MapPin className="h-4 w-4 text-purple-400" />
+                        <MapPin className="h-4 w-4 text-slate-900 dark:text-white" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2 text-slate-400 mt-2 md:mt-0">
+                  <div className="flex items-center space-x-2 text-slate-900 dark:text-white mt-2 md:mt-0">
                     <Calendar className="h-4 w-4" />
                     <span>{exp.period}</span>
                   </div>
                 </div>
 
-                <p className="text-slate-300 mb-6 leading-relaxed">
+                <p className="text-slate-900 dark:text-white mb-6 leading-relaxed">
                   {exp.description}
                 </p>
 
                 <div className="space-y-3">
-                  <h4 className="text-lg font-semibold text-cyan-400">
+                  <h4 className="text-lg font-semibold text-slate-900 dark:text-white">
                     Key Achievements:
                   </h4>
                   <ul className="space-y-2">
@@ -98,7 +98,7 @@ export default function ExperienceSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
                         viewport={{ once: true }}
-                        className="flex items-start space-x-3 text-slate-300"
+                        className="flex items-start space-x-3 text-slate-900 dark:text-white"
                       >
                         <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                         <span>{achievement}</span>
