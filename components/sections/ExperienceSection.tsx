@@ -10,13 +10,18 @@ const experiences = [
     location: "Ahmedabad",
     period: "August 2024 – Present",
     description:
-      "Working as a Frontend Intern contributing to the development of four projects, including static websites and implementing Role-Based Access Control (RBAC) systems.",
+      "As a Frontend Intern, I've contributed to diverse web development projects, honing my skills across multiple frameworks and architectures.",
     achievements: [
-      "Developed and managed complex multi-level routing structure for e-commerce applications",
-      "Implemented dynamic route management for category-specific product listings",
-      "Optimized user experience with smooth transitions and fast-loading pages",
-      "Built responsive user interfaces and enhanced user experience",
+      "Built a comprehensive RBAC (Role-Based Access Control) web application with complex permission structures and dynamic UI rendering based on user roles",
+      "Developed multiple static websites with modern design principles and optimal performance",
+      "Created dynamic sites with real-time data fetching and interactive UI components",
+      "Implemented an e-commerce platform featuring product listings, cart functionality, and checkout flow",
+      "Designed and developed my personal portfolio",
+      "Optimized all projects for performance, achieving 90+ Lighthouse scores through code splitting and lazy loading",
+      "Collaborated with backend teams to design efficient APIs and data structures",
     ],
+    achievementParagraph:
+      "During my internship, I successfully delivered multiple projects including a robust RBAC web application with dynamic UI rendering based on user roles, several static marketing websites, and a full-featured e-commerce platform with product management. I also built my personal portfolio using various frameworks integrated with Strapi CMS for content management. My work emphasized creating responsive, accessible interfaces while optimizing performance through techniques like code splitting and lazy loading. I collaborated closely with backend teams to design efficient APIs and implemented CI/CD pipelines to streamline development workflows.",
   },
 ];
 
@@ -123,6 +128,9 @@ export default function ExperienceSection() {
                       </motion.li>
                     ))}
                   </ul>
+                  <p className="text-slate-900 dark:text-white mt-4">
+                    {exp.achievementParagraph}
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
