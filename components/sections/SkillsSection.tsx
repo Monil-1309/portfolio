@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const skills = [
   { name: "JavaScript", level: 90, category: "Languages" },
@@ -16,14 +16,24 @@ const skills = [
   { name: "SQL", level: 85, category: "Databases" },
   { name: "Tailwind CSS", level: 95, category: "Styling" },
   { name: "Git", level: 90, category: "Tools" },
-]
+];
 
-const categories = ["All", "Languages", "Frameworks", "Databases", "Styling", "Tools"]
+const categories = [
+  "All",
+  "Languages",
+  "Frameworks",
+  "Databases",
+  "Styling",
+  "Tools",
+];
 
 export default function SkillsSection() {
-  const [activeCategory, setActiveCategory] = useState("All")
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredSkills = activeCategory === "All" ? skills : skills.filter((skill) => skill.category === activeCategory)
+  const filteredSkills =
+    activeCategory === "All"
+      ? skills
+      : skills.filter((skill) => skill.category === activeCategory);
 
   return (
     <section id="skills" className="py-20 px-4">
@@ -78,10 +88,10 @@ export default function SkillsSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white dark:bg-slate-900/50 p-6 gradient-text rounded-xl border border-slate-700 hover:border-cyan-400/50 transition-all duration-300"
+              className="bg-white/80 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
             >
               <div className="flex justify-between items-center mb-3">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                   {skill.name}
                 </h3>
                 <span className="text-cyan-400 font-medium">
