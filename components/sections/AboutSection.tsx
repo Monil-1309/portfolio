@@ -10,8 +10,8 @@ export default function AboutSection() {
 
   const stats = [
     { number: "1+", label: "Years Experience", icon: Award },
-    { number: "5+", label: "Projects Completed", icon: Code },
-    { number: "5+", label: "Technologies", icon: Lightbulb },
+    { number: "7+", label: "Projects Completed", icon: Code },
+    { number: "6+", label: "Technologies", icon: Lightbulb },
     { number: "100%", label: "Client Satisfaction", icon: Users },
   ];
 

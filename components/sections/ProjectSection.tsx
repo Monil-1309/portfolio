@@ -32,6 +32,32 @@ const projects = [
     // githubLink: "https://github.com/yourprofile/ekisanmart",
     // viewLink: "https://ekisanmart.example.com/demo",
   },
+  {
+    title: "elixLifeStyle",
+    description:
+      "ElixLifestyle is a modern ladies fashion showcase platform where users can explore a variety of fashion categories and connect directly with vendors. Built for product discovery without integrated payment, it emphasizes style and user experience.",
+    image: "/elixLifestyle.jpeg",
+    category: "Fashion / Showcase",
+    year: "2025",
+    tech: ["Next.js", "Tailwind CSS", "shadcn/ui", "Supabase"],
+    status: "Personal Project",
+    // learnMoreLink: "https://elixlifestyle.example.com",
+    // githubLink: "https://github.com/yourprofile/elixlifestyle",
+    // viewLink: "https://elixlifestyle.example.com/demo",
+  },
+  {
+    title: "Portfolio",
+    description:
+      "This portfolio website showcases my skills, projects, and experience in web development. It features a modern design with smooth animations and responsive layout, built using Next.js and Tailwind CSS.",
+    image: "/elixLifestyle.jpeg",
+    category: "Portfolio",
+    year: "2025",
+    tech: ["Next.js", "Tailwind CSS", "shadcn/ui"],
+    status: "Personal Project",
+    // learnMoreLink: "https://elixlifestyle.example.com",
+    // githubLink: "https://github.com/yourprofile/elixlifestyle",
+    // viewLink: "https://elixlifestyle.example.com/demo",
+  },
 ];
 
 export default function ProjectsSection() {
