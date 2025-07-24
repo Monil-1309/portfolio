@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
-import "./globals.css";
+// import "./globals.css";
+import "../styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
