@@ -19,12 +19,28 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("#hero");
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Optional: Update activeSection on scroll
+      const sectionIds = navItems.map((item) => item.href);
+      let current = "#hero";
+      for (const id of sectionIds) {
+        const el = document.querySelector(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            current = id;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -32,6 +48,7 @@ export default function Navigation() {
 
   const scrollToSection = (href: string) => {
     setIsOpen(false); // Close menu immediately
+    setActiveSection(href); // Set active section on click
 
     setTimeout(() => {
       const element = document.querySelector(href);
@@ -87,13 +104,15 @@ export default function Navigation() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 group font-medium"
+                className={`relative text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 group font-medium`}
               >
                 {item.name}
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 group-hover:w-full transition-all duration-300"
-                  whileHover={{ width: "100%" }}
-                />
+                {activeSection === item.href && (
+                  <span
+                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-500 to-purple-600"
+                    style={{ display: "block" }}
+                  />
+                )}
               </motion.button>
             ))}
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -165,7 +184,13 @@ export default function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.2 }}
-                  className="block w-full text-left text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-300 font-medium"
+                  className={`block w-full text-left text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-3 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all duration-300 font-medium
+                  ${
+                    activeSection === item.href
+                      ? "bg-cyan-50 dark:bg-slate-800/50 font-semibold"
+                      : ""
+                  }
+                `}
                 >
                   {item.name}
                 </motion.button>
