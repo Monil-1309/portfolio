@@ -160,7 +160,7 @@ export default function ContactSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -280,9 +280,18 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white/80 dark:bg-slate-800/50 p-4 sm:p-10 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
+            className="bg-white/80 dark:bg-slate-800/50 p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm h-fit"
           >
-            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                Send Message
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                Fill out the form below and I'll get back to you as soon as
+                possible.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -294,7 +303,7 @@ export default function ContactSection() {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="h-12 sm:h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-base sm:text-lg transition-all duration-300"
+                  className="h-10 sm:h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-sm sm:text-base transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -310,7 +319,7 @@ export default function ContactSection() {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="h-12 sm:h-14 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-base sm:text-lg transition-all duration-300"
+                  className="h-10 sm:h-12 bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 rounded-xl text-sm sm:text-base transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -325,8 +334,8 @@ export default function ContactSection() {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  className="bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 resize-none rounded-xl text-base sm:text-lg transition-all duration-300"
+                  rows={4}
+                  className="bg-slate-50 dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-cyan-500 focus:ring-cyan-500 resize-none rounded-xl text-sm sm:text-base transition-all duration-300"
                   required
                 />
               </motion.div>
@@ -344,7 +353,7 @@ export default function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full h-12 sm:h-14 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl text-base sm:text-lg font-semibold"
+                    className="w-full h-10 sm:h-12 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl text-sm sm:text-base font-semibold"
                   >
                     <AnimatePresence mode="wait">
                       {isSubmitting ? (
